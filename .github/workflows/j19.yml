@@ -1,0 +1,12 @@
+name: j19
+on:
+  schedule:
+    - cron: '0 14 * * 1,4'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j19
+      timeout: 30
+    secrets: inherit

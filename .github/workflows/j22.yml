@@ -1,0 +1,12 @@
+name: j22
+on:
+  schedule:
+    - cron: '0 10 * * 3'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j22
+      timeout: 30
+    secrets: inherit

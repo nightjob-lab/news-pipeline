@@ -1,0 +1,12 @@
+name: j05
+on:
+  schedule:
+    - cron: '0 13 * * 5'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j05
+      timeout: 30
+    secrets: inherit

@@ -1,0 +1,12 @@
+name: j03
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j03
+      timeout: 30
+    secrets: inherit

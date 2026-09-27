@@ -1,0 +1,12 @@
+name: j04
+on:
+  schedule:
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j04
+      timeout: 30
+    secrets: inherit
