@@ -1,7 +1,7 @@
 name: j19
 on:
   schedule:
-    - cron: '0 14 * * 1,4'
+    - cron: '1 6 * * 1,4'
   workflow_dispatch:
 jobs:
   run:

@@ -1,7 +1,7 @@
 name: j22
 on:
   schedule:
-    - cron: '0 10 * * 3'
+    - cron: '51 2 * * 3'
   workflow_dispatch:
 jobs:
   run:
