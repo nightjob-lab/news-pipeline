@@ -16,7 +16,9 @@ jobs:
         run: bash run.sh "${{ inputs.job }}"
         env:
           PAYLOAD_KEY: ${{ secrets.PAYLOAD_KEY }}
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          # 20/10/2026 · La Revue du Luxe sur son projet Firebase dédié `la-revue-du-luxe`.
+          # Retour arrière : remettre secrets.FIREBASE_SERVICE_ACCOUNT (larevue-auto-dashboard).
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SA_LRDL }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
