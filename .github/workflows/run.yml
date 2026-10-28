@@ -34,7 +34,7 @@ jobs:
           # Z.ai (GLM Flash gratuit), sauté sans clé. Textes d'actualité publics seulement.
           ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
           ZAI_MODEL: ${{ vars.ZAI_MODEL }}
-          # Ordre des fournisseurs (variable du dépôt, ex. gemini,groq,xai) ; vide = xai,groq,gemini
+          # Ordre des fournisseurs (variable du dépôt, ex. gemini,groq,xai) ; vide = gemini,groq,zai,xai (gratuit d'abord)
           LLM_ORDRE: ${{ vars.LLM_ORDRE }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
