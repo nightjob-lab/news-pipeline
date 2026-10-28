@@ -30,6 +30,7 @@ jobs:
           DIAG_MODELE: ${{ inputs.modele }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           MISTRAL_API_KEY_2: ${{ secrets.MISTRAL_API_KEY_2 }}
           GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}

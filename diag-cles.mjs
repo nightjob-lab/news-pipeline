@@ -86,6 +86,7 @@ console.log('\nAutres fournisseurs :');
 const autres = [
   ['XAI_API_KEY', 'https://api.x.ai/v1/models'],
   ['GROQ_API_KEY', 'https://api.groq.com/openai/v1/models'],
+  ['ZAI_API_KEY', 'https://api.z.ai/api/paas/v4/models'],
   ['MISTRAL_API_KEY', 'https://api.mistral.ai/v1/models'],
   ['MISTRAL_API_KEY_2', 'https://api.mistral.ai/v1/models'],
 ];
