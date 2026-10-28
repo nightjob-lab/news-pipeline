@@ -7,7 +7,7 @@ rm -rf app && mkdir app
 openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -in payload.enc -pass env:PAYLOAD_KEY | tar -xz -C app
 while IFS= read -r m; do [ -n "$m" ] && echo "::add-mask::$m"; done < app/.masks
 cd app
-env | grep -E '^(GEMINI_API_KEY[A-Z0-9_]*|MISTRAL_API_KEY[0-9_]*|GROQ_API_KEY|TAVILY_API_KEY|CLOUDINARY_[A-Z_]+)=.+' > .env || true
+env | grep -E '^(GEMINI_API_KEY[A-Z0-9_]*|MISTRAL_API_KEY[0-9_]*|GROQ_API_KEY|GROQ_MODEL|XAI_API_KEY|XAI_MODEL|ZAI_API_KEY|ZAI_MODEL|LLM_ORDRE|TAVILY_API_KEY|CLOUDINARY_[A-Z_]+)=.+' > .env || true
 if [ -n "${FIREBASE_SERVICE_ACCOUNT:-}" ]; then
   mkdir -p config
   printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > config/service-account-key.json
