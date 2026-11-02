@@ -30,6 +30,9 @@ jobs:
           DIAG_MODELE: ${{ inputs.modele }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # Autres clés Groq ; secret absent = vide, ignoré, doublon de valeur = une seule clé.
+          GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
+          GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
           ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
           # Clés Z.ai d'autres comptes (limite gratuite par compte) ; secret absent = vide, ignoré.
           ZAI_API_KEY_2: ${{ secrets.ZAI_API_KEY_2 }}
