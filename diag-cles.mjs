@@ -85,15 +85,18 @@ console.log(`\nGemini : ${vivantes} vivante(s), ${quotas} au quota, ${mortes.len
 console.log('\nAutres fournisseurs :');
 const autres = [
   ['XAI_API_KEY', 'https://api.x.ai/v1/models'],
-  ['GROQ_API_KEY', 'https://api.groq.com/openai/v1/models'],
-  // Z.ai : une clé par compte (ZAI_API_KEY, ZAI_API_KEY_2, _3…), chacune sondée.
-  ...['ZAI_API_KEY', ...Object.keys(process.env).filter(k => /^ZAI_API_KEY_\d+$/.test(k)).sort((a, b) => +a.split('_').pop() - +b.split('_').pop())]
-    .map(nom => [nom, 'https://api.z.ai/api/paas/v4/models']),
+  // Groq et Z.ai : plusieurs clés possibles (GROQ_API_KEY, GROQ_API_KEY_2…, ZAI_API_KEY, ZAI_API_KEY_2…), chacune sondée.
+  ...[['GROQ_API_KEY', 'https://api.groq.com/openai/v1/models'], ['ZAI_API_KEY', 'https://api.z.ai/api/paas/v4/models']]
+    .flatMap(([base, url]) => [base, ...Object.keys(process.env).filter(k => new RegExp(`^${base}_\\d+$`).test(k)).sort((a, b) => +a.split('_').pop() - +b.split('_').pop())]
+      .map(nom => [nom, url])),
   ['MISTRAL_API_KEY', 'https://api.mistral.ai/v1/models'],
   ['MISTRAL_API_KEY_2', 'https://api.mistral.ai/v1/models'],
 ];
+const valeursVues = new Map(); // valeur → nom de la première variable (jamais affichée)
 for (const [nom, url] of autres) {
   const cle = String(process.env[nom] || '').trim();
+  if (cle && valeursVues.has(cle)) { console.log(`${nom} : doublon de ${valeursVues.get(cle)} (une seule clé pour la chaîne)`); continue; }
+  if (cle) valeursVues.set(cle, nom);
   console.log(`${nom} : ${cle ? await testerOpenAI(url, cle) : 'absente'}`);
 }
 
