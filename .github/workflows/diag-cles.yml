@@ -31,6 +31,9 @@ jobs:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
+          # Clés Z.ai d'autres comptes (limite gratuite par compte) ; secret absent = vide, ignoré.
+          ZAI_API_KEY_2: ${{ secrets.ZAI_API_KEY_2 }}
+          ZAI_API_KEY_3: ${{ secrets.ZAI_API_KEY_3 }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           MISTRAL_API_KEY_2: ${{ secrets.MISTRAL_API_KEY_2 }}
           GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
