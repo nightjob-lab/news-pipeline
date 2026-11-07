@@ -1,0 +1,12 @@
+name: j29
+on:
+  schedule:
+    - cron: '35 1 * * *'
+  workflow_dispatch:
+jobs:
+  run:
+    uses: ./.github/workflows/run.yml
+    with:
+      job: j29
+      timeout: 60
+    secrets: inherit
